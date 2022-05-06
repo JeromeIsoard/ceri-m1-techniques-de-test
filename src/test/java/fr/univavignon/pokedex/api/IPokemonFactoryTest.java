@@ -21,7 +21,7 @@ public class IPokemonFactoryTest {
 
     @Before
     public void setUp() throws Exception {
-        MockitoAnnotations.initMocks(this);
+        MockitoAnnotations.openMocks(this);
         this.pokemon = new Pokemon(0, "Bulbizarre", 126,126, 90, 613, 64, 4000, 4, 56);
         this.index = 0;
         this.cp = 613;

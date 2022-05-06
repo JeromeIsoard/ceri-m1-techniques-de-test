@@ -19,7 +19,7 @@ public class IPokemonMetadataProviderTest {
 
     @Before
     public void setUp() throws Exception {
-        MockitoAnnotations.initMocks(this);
+        MockitoAnnotations.openMocks(this);
         pokemonMetadataList = new ArrayList<PokemonMetadata>();
         pokemonMetadataList.add(new PokemonMetadata(0,"Bulbizarre",126,126,90));
         pokemonMetadataList.add(new PokemonMetadata(133,"Aquali",186,168,260));
