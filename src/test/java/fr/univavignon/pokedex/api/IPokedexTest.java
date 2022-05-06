@@ -17,12 +17,7 @@ public class IPokedexTest {
     @Mock
     IPokedex pokedex;
     List<Pokemon> pokemonsList;
-    Map<Integer,Pokemon> pokemonsGetIdTeste;
     int size;
-    List<Pokemon> pokemonsGetAll;
-    int getIdPok;
-    PokemonMetadata getVal;
-    Pokemon Pok;
 
     @Before
     public void setUp() throws Exception {
@@ -37,7 +32,7 @@ public class IPokedexTest {
         Mockito.when(pokedex.addPokemon(bulbizarre)).thenReturn(0);
         Mockito.when(pokedex.addPokemon(aquali)).thenReturn(133);
         Mockito.when(pokedex.getPokemon(0)).thenReturn(bulbizarre);
-        Mockito.when(pokedex.getPokemon(133)).thenReturn(aquali);
+        Mockito.when(pokedex.getPokemon(1)).thenReturn(aquali);
         Mockito.when(pokedex.getPokemons()).thenReturn(pokemonsList);
 
     }
@@ -58,7 +53,7 @@ public class IPokedexTest {
     public void getPokemon() {
         for(int i = 0; i < this.pokemonsList.size() ; i++){
             try {
-                assertEquals(this.pokedex.getPokemon(i),this.pokemonsList.get(i));
+                assertEquals(this.pokedex.getPokemon(i).getIndex(),this.pokemonsList.get(i).getIndex());
             } catch (PokedexException e) {
                 e.printStackTrace();
             }
