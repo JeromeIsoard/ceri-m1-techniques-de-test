@@ -33,7 +33,7 @@ public class IPokemonFactoryTest {
     }
 
     @Test
-    public void createPokemon() {
+    public void createPokemon() throws PokedexException {
         assertEquals(this.pokemonfactory.createPokemon(index, cp, hp, dust, candy),this.pokemon);
     }
 }

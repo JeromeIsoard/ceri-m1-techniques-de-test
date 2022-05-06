@@ -8,7 +8,6 @@ import org.mockito.MockitoAnnotations;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import static org.junit.Assert.*;
 
@@ -28,18 +27,18 @@ public class IPokedexTest {
         pokemonsList.add(bulbizarre);
         pokemonsList.add(aquali);
         size = pokemonsList.size();
-        Mockito.when(pokedex.getPokemons()).thenReturn(pokemonsList);
+        Mockito.when(pokedex.getPokemonList()).thenReturn(pokemonsList);
         Mockito.when(pokedex.addPokemon(bulbizarre)).thenReturn(0);
         Mockito.when(pokedex.addPokemon(aquali)).thenReturn(133);
         Mockito.when(pokedex.getPokemon(0)).thenReturn(bulbizarre);
         Mockito.when(pokedex.getPokemon(1)).thenReturn(aquali);
-        Mockito.when(pokedex.getPokemons()).thenReturn(pokemonsList);
+        Mockito.when(pokedex.getPokemonList()).thenReturn(pokemonsList);
 
     }
 
     @Test
     public void size() {
-        assertEquals(pokedex.getPokemons().size() , this.size);
+        assertEquals(pokedex.getPokemonList().size() , this.size);
     }
 
     @Test
@@ -62,7 +61,7 @@ public class IPokedexTest {
 
     @Test
     public void getPokemons() {
-        assertEquals(pokedex.getPokemons(),pokemonsList);
+        assertEquals(pokedex.getPokemonList(),pokemonsList);
     }
 
     @Test

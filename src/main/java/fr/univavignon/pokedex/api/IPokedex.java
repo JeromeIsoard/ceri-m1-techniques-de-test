@@ -41,7 +41,7 @@ public interface IPokedex extends IPokemonMetadataProvider, IPokemonFactory {
 	 * 
 	 * @return Unmodifiable list of all pokemons.
 	 */
-	List<Pokemon> getPokemons();
+	List<Pokemon> getPokemonList();
 
 	/**
 	 * Returns an unmodifiable list of all pokemons this pokedex contains.
