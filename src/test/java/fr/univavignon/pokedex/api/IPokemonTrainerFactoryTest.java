@@ -22,7 +22,7 @@ public class IPokemonTrainerFactoryTest {
     public void setUp() throws Exception {
         MockitoAnnotations.openMocks(this);
         pokemonTrainer = new PokemonTrainer("Jerome", Team.VALOR, pokedex);
-        Mockito.when(this.pokemonTrainerFactory.createTrainer("Jerome", Team.VALOR, (IPokedexFactory) pokedex)).thenReturn(pokemonTrainer);
+        Mockito.when(this.pokemonTrainerFactory.createTrainer("Jerome", Team.VALOR, pokedexFactory)).thenReturn(pokemonTrainer);
     }
 
     @Test
