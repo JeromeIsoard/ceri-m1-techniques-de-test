@@ -141,6 +141,6 @@
                     <configLocation>checkstyle.xml</configLocation>
                 </configuration>
             </plugin>
-
-
+        </plugins>
+    </reporting>
 </project>
