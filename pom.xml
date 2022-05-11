@@ -113,8 +113,7 @@
                             <goal>badges</goal>
                         </goals>
                         <configuration>
-                            <skip>${badges.skip}</skip>
-                            <outputDir>target/badges</outputDir>
+                            <outputDir>target/site/badges/</outputDir>
                             <inputFiles>
                                 <inputFile>target/checkstyle-result.xml</inputFile>
 <!--                                                                                                <inputFile>target/pmd.xml</inputFile>-->
