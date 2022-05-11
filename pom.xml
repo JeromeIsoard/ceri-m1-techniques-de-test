@@ -13,31 +13,22 @@
     <url>http://maven.apache.org</url>
 
     <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-collections4</artifactId>
-            <version>4.0</version>
-        </dependency>
-
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
             <version>4.4.0</version>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>com.puppycrawl.tools</groupId>
             <artifactId>checkstyle</artifactId>
@@ -46,10 +37,7 @@
     </dependencies>
 
     <build>
-        <sourceDirectory>${basedir}/src/main/java</sourceDirectory>
-        <testSourceDirectory>${basedir}/src/test/java/</testSourceDirectory>
-        <testOutputDirectory>${basedir}/target/test-classes</testOutputDirectory>
-        <finalName>maven-unit-test</finalName>
+        <defaultGoal>install</defaultGoal>
         <plugins>
 
             <!--            test-->
@@ -57,10 +45,10 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.10.1</version>
-<!--                <configuration>-->
-<!--                    <source>1.8</source>-->
-<!--                    <target>1.8</target>-->
-<!--                </configuration>-->
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -152,7 +140,6 @@
                     </execution>
                 </executions>
             </plugin>
-
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
@@ -172,25 +159,12 @@
                     </execution>
                 </executions>
             </plugin>
-
-
-            <!--            checkstyle-->
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
                 <version>3.1.2</version>
-                <configuration>
-                    <!--                    <configLocation>checkstyle.xml</configLocation>-->
-                    <encoding>UTF-8</encoding>
-                    <consoleOutput>true</consoleOutput>
-                    <!--                    <failsOnError>true</failsOnError>-->
-                    <linkXRef>false</linkXRef>
-                    <outputDirectory>target</outputDirectory>
-                </configuration>
                 <executions>
                     <execution>
-                        <id>validate</id>
                         <phase>process-classes</phase>
                         <goals>
                             <goal>checkstyle</goal>
@@ -226,7 +200,7 @@
                 <artifactId>wagon-webdav</artifactId>
                 <version>1.0-beta-2</version>
             </extension>
-<!--             end - needed for deploying to repository using webdav -->
+            <!-- end - needed for deploying to repository using webdav -->
         </extensions>
     </build>
     <reporting>
@@ -236,10 +210,10 @@
                 <artifactId>maven-checkstyle-plugin</artifactId>
                 <version>3.1.2</version>
                 <configuration>
-
                     <configLocation>checkstyle.xml</configLocation>
                 </configuration>
             </plugin>
+
         </plugins>
     </reporting>
 </project>
