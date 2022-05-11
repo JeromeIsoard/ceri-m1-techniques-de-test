@@ -89,7 +89,7 @@
                     <consoleOutput>true</consoleOutput>
                     <!--                    <failsOnError>true</failsOnError>-->
                     <linkXRef>false</linkXRef>
-                    <outputDirectory>target/reports</outputDirectory>
+                    <outputDirectory>target</outputDirectory>
                 </configuration>
                 <executions>
                     <execution>
