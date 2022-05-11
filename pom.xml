@@ -118,7 +118,7 @@
                             <outputDir>target/badges</outputDir>
                             <inputFiles>
 <!--                                                                <inputFile>target/pmd.xml</inputFile>-->
-                                <!--                                <inputFile>target/findbugs-report.xml</inputFile>-->
+<!--                                                                <inputFile>target/findbugs-report.xml</inputFile>-->
                                 <!--                                <inputFile>target/findbugsXml.xml</inputFile>-->
                                 <inputFile>target/checkstyle-result.xml</inputFile>
                                 <!--                                <inputFile>target/coverage-report.xml</inputFile>-->
