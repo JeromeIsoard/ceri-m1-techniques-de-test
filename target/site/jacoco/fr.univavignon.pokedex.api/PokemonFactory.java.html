@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PokemonFactory.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">mon-application</a> &gt; <a href="index.source.html" class="el_package">fr.univavignon.pokedex.api</a> &gt; <span class="el_source">PokemonFactory.java</span></div><h1>PokemonFactory.java</h1><pre class="source lang-java linenums">package fr.univavignon.pokedex.api;
+
+import java.util.Random;
+
+public class PokemonFactory implements IPokemonFactory{
+
+<span class="nc" id="L7">    private PokemonMetadaProvider pokemonMetadaProvider = PokemonMetadaProvider.getInstance();</span>
+    private static PokemonFactory instance;
+
+    /**
+     * Constructor
+     * Singleton to have only one factory
+     */
+<span class="nc" id="L14">    private PokemonFactory(){</span>
+
+<span class="nc" id="L16">    }</span>
+
+    public static PokemonFactory getInstance(){
+<span class="nc bnc" id="L19" title="All 2 branches missed.">        if (instance == null){</span>
+<span class="nc" id="L20">            instance = new PokemonFactory();</span>
+        }
+<span class="nc" id="L22">        return instance;</span>
+    }
+
+    /**
+     * Creates a pokemon instance computing it IVs.
+     *
+     * @param index Pokemon index.
+     * @param cp    Pokemon CP.
+     * @param hp    Pokemon HP.
+     * @param dust  Required dust for upgrading pokemon.
+     * @param candy Required candy for upgrading pokemon.
+     * @return Created pokemon instance.
+     */
+    @Override
+    public Pokemon createPokemon(int index, int cp, int hp, int dust, int candy) throws PokedexException {
+<span class="nc" id="L37">        PokemonMetadata newPokemonMetaData = pokemonMetadaProvider.getPokemonMetadata(index);</span>
+<span class="nc" id="L38">        Random random = new Random();</span>
+<span class="nc" id="L39">        double iv = random.nextInt(100);</span>
+<span class="nc" id="L40">        Pokemon newPokemon = new Pokemon(index, newPokemonMetaData.getName(), newPokemonMetaData.getAttack(),</span>
+<span class="nc" id="L41">                                                newPokemonMetaData.getDefense(), newPokemonMetaData.getStamina(),</span>
+                                                cp, hp, dust, candy, iv);
+<span class="nc" id="L43">        return newPokemon;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
