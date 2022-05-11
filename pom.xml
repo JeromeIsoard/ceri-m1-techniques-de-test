@@ -100,8 +100,7 @@
                     </execution>
                 </executions>
             </plugin>
-
-            <!-- Generate badges. -->
+            <!-- Generate checkstyle badge. -->
             <plugin>
                 <groupId>com.github.bordertech.buildtools</groupId>
                 <artifactId>badger</artifactId>
@@ -116,18 +115,32 @@
                             <outputDir>target/site/badges/</outputDir>
                             <inputFiles>
                                 <inputFile>target/checkstyle-result.xml</inputFile>
-<!--                                                                                                <inputFile>target/pmd.xml</inputFile>-->
-                                <!--                                                                <inputFile>target/findbugs-report.xml</inputFile>-->
-                                <!--                                <inputFile>target/findbugsXml.xml</inputFile>-->
-                                <!--                                <inputFile>target/coverage-report.xml</inputFile>-->
                             </inputFiles>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
-
         </plugins>
+        <extensions>
+
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-webdav</artifactId>
+                <version>1.0-beta-2</version>
+            </extension>
+            <!-- end - needed for deploying to repository using webdav -->
+        </extensions>
     </build>
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>3.1.2</version>
+                <configuration>
+                    <configLocation>checkstyle.xml</configLocation>
+                </configuration>
+            </plugin>
 
 
 </project>
