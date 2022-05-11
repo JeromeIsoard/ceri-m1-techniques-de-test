@@ -33,7 +33,7 @@
             <version>4.4.0</version>
             <scope>test</scope>
         </dependency>
-        
+
         <dependency>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-checkstyle-plugin</artifactId>
@@ -49,7 +49,7 @@
         <finalName>maven-unit-test</finalName>
         <plugins>
 
-<!--            test-->
+            <!--            test-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -77,17 +77,17 @@
             </plugin>
 
 
-<!--            checkstyle-->
+            <!--            checkstyle-->
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
                 <version>3.1.2</version>
                 <configuration>
-<!--                    <configLocation>checkstyle.xml</configLocation>-->
+                    <!--                    <configLocation>checkstyle.xml</configLocation>-->
                     <encoding>UTF-8</encoding>
                     <consoleOutput>true</consoleOutput>
-<!--                    <failsOnError>true</failsOnError>-->
+                    <!--                    <failsOnError>true</failsOnError>-->
                     <linkXRef>false</linkXRef>
                     <outputDirectory>target/reports</outputDirectory>
                 </configuration>
@@ -103,23 +103,35 @@
             </plugin>
 
         </plugins>
+
+        <plugins>
+            <!-- Generate badges. -->
+            <plugin>
+                <groupId>com.github.bordertech.buildtools</groupId>
+                <artifactId>badger</artifactId>
+                <version>1.0.0</version>
+                <executions>
+                    <execution>
+                        <phase>post-site</phase>
+                        <goals>
+                            <goal>badges</goal>
+                        </goals>
+                        <configuration>
+                            <skip>${badges.skip}</skip>
+                            <outputDir>target/badges</outputDir>
+                            <inputFiles>
+<!--                                <inputFile>target/pmd.xml</inputFile>-->
+<!--                                <inputFile>target/findbugs-report.xml</inputFile>-->
+<!--                                <inputFile>target/findbugsXml.xml</inputFile>-->
+                                <inputFile>target/checkstyle-result.xml</inputFile>
+<!--                                <inputFile>target/coverage-report.xml</inputFile>-->
+                            </inputFiles>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
     </build>
 
-<!--    <reporting>-->
-<!--        <plugins>-->
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-checkstyle-plugin</artifactId>-->
-<!--                <version>3.1.2</version>-->
-<!--                <reportSets>-->
-<!--                    <reportSet>-->
-<!--                        <reports>-->
-<!--                            <report>checkstyle</report>-->
-<!--                        </reports>-->
-<!--                    </reportSet>-->
-<!--                </reportSets>-->
-<!--            </plugin>-->
-<!--        </plugins>-->
-<!--    </reporting>-->
 
 </project>
